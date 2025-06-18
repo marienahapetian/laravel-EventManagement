@@ -14,11 +14,14 @@ class AttendeeResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        //return parent::toArray($request);
+        return parent::toArray($request);
 
         return [
+            'id' => $this->id,
             'name' => $this->user->name,
-            'email' => $this->user->email
+            'email' => $this->user->email,
+            'user_id' => $this->event->user_id,
+            'event_id' => $this->event->id
         ];
     }
 }
